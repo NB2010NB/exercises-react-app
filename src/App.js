@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+// import About from './component/pages/about/About';
+// import Home from './component/pages/HomePage';
+// import Game from './component/pages/game/game';
+import { useState } from 'react';
+import Router from './component/pages/Router';
 
+export const page = ["test", "page2", "page3"];
 function App() {
+  const  [pages, setPages] = useState("test");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {/* <Home /> */}
+      {/* <About/> */}
+      {/* <Game /> */}
+      {page.map(pageName => 
+      <button onClick={() =>setPages(pageName) }>{pageName}</button>)}
+      <Router pages={pages} />
     </div>
-  );
+  )
 }
-
 export default App;
